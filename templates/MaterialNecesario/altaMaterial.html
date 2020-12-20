@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <title>Alta de material de práctica</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/bootstrap.min.css')}}">
+        <script>
+          function visible()
+          {
+            document.getElementById('material').style.visibility="hidden";
+          }
+          function materiales()
+          {
+            var textarea=document.getElementById('materiales');
+            var valor=textarea.value;
+            var contenido=document.getElementById('equipo').value+" ";
+            contenido+=document.getElementById('liquido').value+" ";
+            contenido+=document.getElementById('reactivo').value +" ";
+            document.getElementById('material').setAttribute("value",(valor+" "+contenido+" "));
+            textarea.value=valor+contenido;
+          }
+          
+        </script>
+    </HEAD>
+    <BODY onload="visible()">
+        
+        <header>
+            <div align="center"><img src="{{url_for('static',filename='Imagenes/logoTEC.jpg')}}" class="ImgHeader">  </div>
+            <br>
+         </header>
+        
+        <MAIN>
+            <h1 align="center">Registro de Intrumentos para las prácticas</h1>
+            <div class="border-0">
+             <form action="/materiales/save" method="POST" align="center">
+                  <table align="center" width=80% >
+                    <body>
+                      <tr>
+                        
+                        <td >
+                          <div class="form-group">
+                            <label>Selecciona una práctica:</label>
+                          </div>
+                        </td>
+                        <td >
+                          <select class="form-control" name="idpractica" id="idpractica">
+                          {% for practica in Practicas %}
+                          <option value="{{practica.IdPractica}}" selected>{{practica.NombrePractica}}</option>
+                          {% endfor %}
+                          </select>
+                        </td>
+                        <td>
+                          <div class="form-group">
+                            <label>Selecciona Equipos:</label>
+                            </div>
+                        </td>
+                        <td>
+                          <select class="form-control" name="equipo" id="equipo">
+                            {% for equipo in Equipos %}
+                            <option value="1 {{equipo.NombreEquipo}}" selected>{{equipo.NombreEquipo}}</option>
+                            {% endfor %}
+                            </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="form-group">
+                            <label>Selecciona Liquidos:</label>
+                            </div>
+                        </td>
+                        <td>
+                          <select class="form-control" name="liquido" id="liquido">
+                            {% for liquido in Liquidos %}
+                            <option value="1 {{liquido.MedioCultivo}}" selected>{{liquido.MedioCultivo}}</option>
+                            {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+                          <div class="form-group">
+                            <label>Selecciona Reactivos:</label>
+                            </div>
+                        </td>
+                        <td>
+                          <select class="form-control" name="reactivo" id="reactivo">
+                            {% for reactivo in Reactivos %}
+                            <option value="1 {{reactivo.NombreReactivo}}" selected>{{reactivo.NombreReactivo}}</option>
+                            {% endfor %}
+                            </select>
+                        </td>
+                      </tr>
+
+                      
+                    </body>
+                  </table>
+                  <input type="text" id="material" name="material"> 
+                  <div class="form-group">
+                    <label>Materiales Añadidos</label>
+                    <textarea class="form-control" id="materiales" id="materiales" rows="3"></textarea>
+                  </div>
+                  <br><br>
+                  <button align="center" class="btn btn-primary">Confirmar</button>
+                  <a  role="btn" class="btn btn-success" onclick="materiales()">Añadir</a>
+                  <a  role="btn" class="btn btn-danger" href="/materiales">Regresar</a>
+                 
+            </form>   
+          </div>
+            </div>
+            <br>
+              
+        </MAIN>
+
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(245, 236, 236, 0.2)">
+              <img src="{{url_for('static',filename='Imagenes/logoACC.png')}}" class="imgFooter">© 2020 Copyright:
+              <a class="text-dark" href="https://www.teczamora.mx">www.teczamora.mx</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+        </BODY>
+    </HTML>

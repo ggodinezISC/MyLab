@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <title>Alta Reactivos</title>
+        <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/bootstrap.min.css')}}">
+
+    <BODY>
+      <header>
+        <div align="center"><img src="{{url_for('static',filename='Imagenes/logoTEC.jpg')}}" class="ImgHeader">  </div>
+        <br>
+     </header>
+
+    <main>
+           <h1 align="center">Registro de Reactivos</h1>
+           <div class="border-0">
+            <form action="/reactivos/save" method="POST" align="center">
+                 <table align="center" width=80% >
+                   <body>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>IdReactivo:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="number" class="form-control" name="idreactivo" id="idreactivo" placeholder="Introduce el id del reactivo" required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>IdLaboratorio:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="number" class="form-control" name="idlaboratorio" id="idlaboratorio"  placeholder="Introduce el id de laboratorio" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>Nombre Reactivo:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introduce el nombre del reactivo" required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>Fórmula:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="text" class="form-control" name="formula" id="formula"  placeholder="Introduce la formula del reactivo" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>PMolecular:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="pmolecular" id="pmolecular" placeholder="Introduce el PMolecular" required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>Cantidad:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="number" class="form-control" name="cantidad" id="cantidad"  placeholder="Introduce la cantidad de contenedores" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>Contenido:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="contenido" id="contenido" placeholder="Introduce el contenido en GR/KG" required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>Color Almacenaje:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="text" class="form-control" name="color" id="color"  placeholder="Introduce el color de almacenaje" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     
+                   </body>
+                 </table>
+                 <button align="center" class="btn btn-primary">Agregar</button>
+                 <a  role="btn" class="btn btn-danger" href="/reactivos">Regresar</a>
+           </form>   
+         </div>
+       </div>
+       <br>
+      
+
+  </main>
+
+
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(245, 236, 236, 0.2)">
+      <img src="{{url_for('static',filename='Imagenes/logoACC.png')}}" class="imgFooter">© 2020 Copyright:
+      <a class="text-dark" href="https://www.teczamora.mx">www.teczamora.mx</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  </body>
+</html>

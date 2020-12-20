@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <title>Consulta Intrumentación</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/bootstrap.min.css')}}">
+	    <script src="{{url_for('static',filename='JS/global.js')}}" ></script>
+
+    </HEAD>
+    <BODY>
+        <header>
+            <div align="center"><img src="{{url_for('static',filename='Imagenes/logoTEC.jpg')}}" class="ImgHeader">  </div>
+        </header>
+            <h1 align="center">Consulta Intrumentacion para las prácticas de laboratorio</h1>
+             <br>
+             
+             <form method="POST" enctype="text/plain">
+                
+                <div align="center" margin="auto" class="border border-light">
+                      <fieldset >
+                        {%if current_user.Tipo!="A"%}
+                          <table width=30%>
+                              <tr>
+                                  <td>
+                                    <div class="control-group" >
+                                        <label>IdInstrumentación:</label>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="control-group" >
+                                        <input type="number" class="form-control" id="idmaterial" required>
+                                    </div>
+                                  </td>
+                              </tr>
+                          </table>
+                                <br>
+                                
+                            <button  type="submit" class="btn btn-primary" >Buscar</button>
+                           <a  role="btn" class="btn btn-primary" href="/materiales/new">Agregar Intrumentación</a>
+                           {%endif%}
+                           <a  role="btn" class="btn btn-danger" href="/">Regresar</a>
+                            <br>
+                    </fieldset>
+                    <br>
+              </div>
+            </form>
+            
+        <main>
+            <br>
+            <section class="border-0"align="center">
+               <table class="table" >
+                    <thead>
+                        <th>IdMaterial</th>
+                        <th>IdPractica</th>
+                        <th>Materiales</th>
+                        
+                        {%if current_user.Tipo!="A"%}
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                        {%endif%}
+                        {%if current_user.Tipo=="A"%}
+                        <th>Imprimir</th>
+                        {%endif%}
+                    </thead>
+      
+                    <tbody>
+                    {% for material in Materiales %}
+                        <tr>
+                            <td>{{material.IdMaterial}}</td>
+                            <td>{{material.IdPractica}}</td>
+                            <td>{{material.Materiales}}</td>
+                            {%if current_user.Tipo!="A"%}
+                            <td><a href="/materiales/{{material.IdMaterial}}"><img src="{{url_for('static',filename='Imagenes/editar.png')}}"></a></td>
+                            <td><a href="javascript:eliminarMaterial({{material.IdMaterial}})"><img src="{{url_for('static',filename='Imagenes/eliminar.png')}}"></a></td>
+                            {%endif%}
+                            {%if current_user.Tipo=="A"%}
+                            <td><a href="#"><img width="30" height="30" src="{{url_for('static',filename='Imagenes/impresora.png')}}"></a></td>
+                            {%endif%}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table> 
+      
+            </section>
+            <br>
+      
+      
+        </main>
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(245, 236, 236, 0.2)">
+              <img src="{{url_for('static',filename='Imagenes/logoACC.png')}}" class="imgFooter">© 2020 Copyright:
+              <a class="text-dark" href="https://www.teczamora.mx">www.teczamora.mx</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+    
+    </BODY>
+</HTML>

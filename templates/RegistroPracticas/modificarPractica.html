@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <title>Modificación de Prácticas</title>
+        <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/bootstrap.min.css')}}">
+
+    <BODY>
+      <header>
+        <div align="center"><img src="{{url_for('static',filename='Imagenes/logoTEC.jpg')}}" class="ImgHeader">  </div>
+        <br>
+     </header>
+
+    <main>
+           <h1 align="center">Actualización de Práctica</h1>
+           <div class="border-0">
+            <form action="/practicas/modificar" method="POST" align="center">
+                 <table align="center" width=80% >
+                   <body>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>IdPractica:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="number" class="form-control" name="idpractica" id="idpractica" value="{{Practica.IdPractica}}" placeholder="Introduce el id del reactivo" readonly required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>IdLaboratorio:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="number" class="form-control" name="idlaboratorio" id="idlaboratorio" value="{{Practica.IdLaboratorio}}" placeholder="Introduce el id de laboratorio" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>IdMaestro:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="number" class="form-control" name="idmaestro" id="idmaestro" value="{{Practica.IdMaestro}}" placeholder="Introduce el id del reactivo" required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>Nombre de la Práctica:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="text" class="form-control" name="nombre" id="nombre" value="{{Practica.NombrePractica}}" placeholder="Introduce el nombre de la práctica" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>Descripción:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{Practica.Descripcion}}" placeholder="Introduce una descripción para la práctica" required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>Semestre:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="number" maxlength="1" class="form-control" name="semestre" id="semestre" value="{{Practica.Semestre}}" placeholder="Introduce el semestre del grupo que realizará la práctica" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>Ciclo Escolar:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="text" maxlength="10" class="form-control" name="ciclo" id="ciclo" value="{{Practica.CicloEscolar}}" placeholder="Introduce el ciclo escolar" required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>Fecha de la Práctica:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="date" class="form-control" name="fecha" id="fecha" value="{{Practica.FechaPractica}}" placeholder="Introduce la fecha para presentar la práctica" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     <tr>
+                      <td >
+                          <div class="form-group">
+                            <label>Hora de Inicio:</label>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group">
+                            <input type="time" class="form-control" name="horai" id="horai" value="{{Practica.HoraInicio}}" placeholder="Introduce la hora de inicio" required>
+                          </div>
+                        </td>
+                     <td >
+                       <div class="form-group">
+                         <label>Hora de Fin:</label>
+                       </div>
+                     </td>
+                     <td >
+                       <div class="form-group">
+                         <input type="time" class="form-control" name="horaf" id="horaf" value="{{Practica.HoraFin}}" placeholder="Introduce la hora de fin" required>
+                       </div>
+                     </td>
+                     
+                   </tr>
+                   <tr>
+                    <td >
+                        <div class="form-group">
+                          <label>Estatus:</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <input type="text" maxlength="10" class="form-control" name="estatus" id="estatus" value="{{Practica.Estatus}}" placeholder="Introduce el estatus de la práctica" required>
+                        </div>
+                      </td>
+                   
+                 </tr>
+                   </body>
+                 </table>
+                 <button align="center" class="btn btn-primary">Agregar</button>
+                 <a  role="btn" class="btn btn-danger" href="/practicas">Regresar</a>
+           </form>   
+         </div>
+       </div>
+       <br>
+      
+
+  </main>
+
+
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(245, 236, 236, 0.2)">
+      <img src="{{url_for('static',filename='Imagenes/logoACC.png')}}" class="imgFooter">© 2020 Copyright:
+      <a class="text-dark" href="https://www.teczamora.mx">www.teczamora.mx</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  </body>
+</html>

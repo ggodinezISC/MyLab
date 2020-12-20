@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Alta Laboratorio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/bootstrap.min.css')}}">
+  </head>
+  <body>
+    <header>
+      <div align="center"><img src="{{url_for('static',filename='Imagenes/logoTEC.jpg')}}" class="ImgHeader">  </div>
+      <br>
+   </header>
+
+
+    <main>
+      <h1 align="center">Registro de Laboratorios</h1>
+      <div id="datosLaboratorio" class="border-0">
+      <form action="/laboratorios/save" method="POST" align="center">
+           <table align="center" width=80% >
+             <body>
+               <tr>
+                 <td >
+                   <div class="form-group">
+                     <label>IdLaboratorio:</label>
+                   </div>
+                 </td>
+                 <td >
+                   <div class="form-group">
+                     <input type="number" class="form-control" name="idlaboratorio" id="idlaboratorio" aria-describedby="informacion personal" placeholder="Introduce el id del laboratorio" required>
+                   </div>
+                 </td>
+                 <td>
+                   <div class="form-group">
+                     <label>Nombre del Laboratorio:</label>
+                     </div>
+                 </td>
+                 <td>
+                   <div class="form-group">
+                     <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="informacion personal" placeholder="Introduce nombre del laboratorio" required>
+                 </div>
+                 </td>
+               </tr>
+               <tr>
+                 <td>
+                   <div class="form-group">
+                     <label>Edificio:</label>
+                     </div>
+                 </td>
+                 <td>
+                   <div class="form-group">
+                     <input type="text" class="form-control" name="edificio" id="edificio" aria-describedby="edificio del laboratorio" placeholder="Introduce el nombre del edificio" required>
+                   </div>
+                 </td>
+                 <td>
+                   <div class="form-group">
+                     <label>Aula:</label>
+                     </div>
+                 </td>
+                 <td>
+                   <div class="form-group">
+                     <input type="number" maxlength="3" class="form-control" name="aula" id="aula" aria-describedby="numero de aula" placeholder="numero de aula del laboratorio" required>
+                   </div>
+                 </td>
+               </tr>
+               
+             </body>
+           </table>
+           <button align="center" class="btn btn-primary">Agregar</button>
+           <a  role="btn" class="btn btn-danger" href="/laboratorios">Regresar</a>
+     </form>   
+   </div>
+ </div>
+ <br>
+
+</main>
+
+    <footer class="bg-light text-center text-lg-start">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(245, 236, 236, 0.2)">
+        <img src="{{url_for('static',filename='Imagenes/logoACC.png')}}" class="imgFooter">© 2020 Copyright:
+        <a class="text-dark" href="https://www.teczamora.mx">www.teczamora.mx</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+  </body>
+</html>

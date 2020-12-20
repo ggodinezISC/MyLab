@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <title>Modificar Alumno</title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/bootstrap.min.css')}}">
+        <script src="{{url_for('static',filename='JS/Alumnos.js')}}" ></script>
+
+    </HEAD>
+    <BODY>
+        
+        <header>
+            <div align="center"><img src="{{url_for('static',filename='Imagenes/logoTEC.jpg')}}" class="ImgHeader">  </div>
+        </header>
+        <main>
+             <h1 align="center">Edición de Alumno</h1>
+             <br>
+
+            <section class="border border-primary" >
+               <form action="/alumnos/modificar" method="POST">
+                <div id="datosUsuario" class="border-0" align="center">
+                    <form action="/alumnos/save" method="POST" align="center">
+                         <table align="center" width=80% >
+                           <body>
+                             <tr>
+                               <td >
+                                 <div class="form-group" id="NoControlAlumno" >
+                                   <label>Número de control:</label>
+                                   
+                                 </div>
+                               </td>
+                               <td >
+                                 <div class="form-group" id="NoControlAlumno" >
+                                   <input type="number" class="form-control" name="nocontrol" id="nocontrol" aria-describedby="informacion personal" value="{{Alumno.NoControl}}" placeholder="Introduce el numero de control" readonly required>
+                                 </div>
+                               </td>
+                               <td>
+                                 <div class="form-group" id="datosAlumno" >
+                                   <label for="IdUsuario">ID Usuario:</label>
+                                   </div>
+                               </td>
+                               <td>
+                                 <div class="form-group" id="datosAlumno" >
+                                   <input type="number" class="form-control" name="idusuario" id="idusuario" aria-describedby="informacion personal" value="{{Alumno.IdUsuario}}" placeholder="Introduce el ID de Usuario" required>
+                               </div>
+                               </td>
+                             </tr>
+                             <tr>
+                               <td>
+                                 <div class="form-group">
+                                   <label for="idcarrera">semestre:</label>
+                                   </div>
+                               </td>
+                               <td>
+                                 <div class="form-group">
+                                   <input type="number" class="form-control" name="semestre" id="semestre" aria-describedby="semestre del alumno" value="{{Alumno.Semestre}}" maxlength="1" placeholder="Introduce el semestre" required>
+                                 </div>
+                               </td>
+                               <td>
+                                <div class="form-group">
+                                  <label for="idcarrera">Grupo:</label>
+                                  </div>
+                              </td>
+                              <td>
+                                <div class="form-group">
+                                  <input type="text" class="form-control" name="grupo" id="grupo" aria-describedby="grupo del alumno" value="{{Alumno.Grupo}}"  maxlength="1" placeholder="Introduce el grupo" required>
+                                </div>
+                              </td>
+                             </tr>
+                             
+                           </body>
+                         </table>
+                         <button class="btn btn-danger">Actualizar</button>
+                         <a  role="btn" class="btn btn-primary" href="/alumnos" >Cancelar</a>
+                   </form>   
+                 </div>
+                    <br>
+        </main>
+        
+        <footer>
+            
+            <div class="footer-copyright text-center py-3">
+                <img src="{{url_for('static',filename='Imagenes/logoACC.png')}}" class="imgFooter">
+                © 2020 Copyright:
+                <a href="/"> www.TecZamora.com/BolsaTEC</a>
+            </div>
+
+        </footer>
+    
+    </BODY>
+</HTML>

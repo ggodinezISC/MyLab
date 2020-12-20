@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <title>Consulta Liquidos</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/bootstrap.min.css')}}">
+        <script src="{{url_for('static',filename='JS/bootstrap.min.js')}}"></script>
+
+    </HEAD>
+    <BODY>
+        <header>
+            <div align="center"><img src="{{url_for('static',filename='Imagenes/logoTEC.jpg')}}" class="ImgHeader">  </div>
+        </header>
+            <h1 align="center">Consulta Líquidos de laboratorio</h1>
+             <br>
+             <form method="POST" enctype="text/plain">
+                <div id="datosPersonales" align="center" margin="auto" class="border border-light">
+                      <fieldset >
+                          <table width=30%>
+                              <tr>
+                                  <td>
+                                    <div class="control-group" >
+                                        <label>IdLíquido:</label>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="control-group" >
+                                        <input type="number" class="form-control" id="idliquido" required>
+                                    </div>
+                                  </td>
+                              </tr>
+                          </table>
+                                <br>
+         
+                            <button  type="submit" class="btn btn-primary" >Buscar</button>
+                           <a  role="btn" class="btn btn-primary" href="/liquidos/new">Agregar Líquido</a>
+                           <a  role="btn" class="btn btn-danger" href="/">Regresar</a>
+                            <br>
+                    </fieldset>
+                    <br>
+              </div>
+            </form>
+        <main>
+            <br>
+            <section class="border-0">
+               <table class="table">
+                    <thead>
+                        <th>IdLiquido</th>
+                        <th>IdLaboratorio</th>
+                        <th>Medio de cultivo</th>
+                        <th>Caducidad</th>
+                        <th>Cantidad</th>
+                        <th>Capacidad</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </thead>
+      
+                    <tbody>
+                    {% for liquido in Liquidos %}
+                        <tr>
+                            <td>{{liquido.IdLiquido}}</td>
+                            <td>{{liquido.IdLaboratorio}}</td>
+                            <td>{{liquido.MedioCultivo}}</td>
+                            <td>{{liquido.FechaCaducidad}}</td>
+                            <td>{{liquido.Cantidad}}</td>
+                            <td>{{liquido.Capacidad}}</td>
+                            <td><a href="/liquidos/{{liquido.IdLiquido}}"><img src="{{url_for('static',filename='Imagenes/editar.png')}}"></a></td>
+                            <td><a href="javascript:eliminarLiquido({{liquido.IdLiquido}})"><img src="{{url_for('static',filename='Imagenes/eliminar.png')}}"></a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table> 
+      
+            </section>
+            <br>
+      
+      
+        </main>
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(245, 236, 236, 0.2)">
+              <img src="{{url_for('static',filename='Imagenes/logoACC.png')}}" class="imgFooter">© 2020 Copyright:
+              <a class="text-dark" href="https://www.teczamora.mx">www.teczamora.mx</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+    
+    </BODY>
+</HTML>

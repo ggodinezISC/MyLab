@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <title>Consulta Alumno</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/bootstrap.min.css')}}">
+	    <script src="{{url_for('static',filename='JS/global.js')}}" ></script>
+
+    </HEAD>
+    <BODY>
+        
+        <header>
+
+             <div align="center"><img src="{{url_for('static',filename='Imagenes/logoTEC.jpg')}}" class="ImgHeader">  </div>
+            
+        </header>
+
+            <h1 align="center">Consulta Alumnos</h1>
+             <br>
+        <form action="javascript:obtenerID()" method="POST" enctype="text/plain">
+                <div id="datosPersonales" align="center" margin="auto" class="border border-light">
+                      <fieldset >
+                          <table width=30%>
+                              <tr>
+                                  <td>
+                                    <div class="control-group" >
+                                        <label for="NoControl">Número de Control:</label>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="control-group" >
+                                        <input type="number" class="form-control" id="Nocontrol" aria-describedby="Numero de control del alumno" required>
+                                    </div>
+                                  </td>
+                              </tr>
+                          </table>
+                                <br>
+
+                            <button  type="submit" class="btn btn-primary" >Buscar</button>
+                           <a  role="btn" class="btn btn-primary" href="/alumnos/new">Agregar Alumno</a>
+                           <a  role="btn" class="btn btn-danger" href="/">Regresar</a>
+                            <br>
+                    </fieldset>
+                    <br>
+              </div>
+            </form>
+        <main>
+
+            <br>
+            <section class="border-0">
+               <table class="table">
+                    <thead>
+                        <th>NoControl</th>
+                        <th>ID Usuario</th>
+                        <th>Semestre</th>
+                        <th>Grupo</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </thead>
+
+                    <tbody>
+                    {% for alumno in Alumnos %}
+                        <tr>
+                            <td>{{alumno.NoControl}}</td>
+                            <td>{{alumno.IdUsuario}}</td>
+                            <td>{{alumno.Semestre}}</td>
+                            <td>{{alumno.Grupo}}</td>
+                            <td><a href="/alumnos/{{alumno.NoControl}}"><img src="{{url_for('static',filename='Imagenes/editar.png')}}"></a></td>
+                            <td><a href="javascript:eliminarAlumno({{alumno.NoControl}})"><img src="{{url_for('static',filename='Imagenes/eliminar.png')}}"></a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table> 
+
+            </section>
+            <br>
+
+        </main>
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(245, 236, 236, 0.2)">
+              <img src="{{url_for('static',filename='Imagenes/logoACC.png')}}" class="imgFooter">© 2020 Copyright:
+              <a class="text-dark" href="https://www.teczamora.mx">www.teczamora.mx</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+    
+    </BODY>
+</HTML>

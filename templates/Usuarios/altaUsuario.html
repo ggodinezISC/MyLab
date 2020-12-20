@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <title>Alta Usuarios</title>
+        <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/bootstrap.min.css')}}">
+
+    <BODY>
+      <header>
+        <div align="center"><img src="{{url_for('static',filename='Imagenes/logoTEC.jpg')}}" class="ImgHeader">  </div>
+        <br>
+     </header>
+
+    <main>
+           <h1 align="center">Registro de Usuarios</h1>
+           <div class="border-0">
+            <form action="/usuarios/save" method="POST" align="center">
+                 <table align="center" width=80% >
+                   <body>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>IdUsuario:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="number" class="form-control" name="idusuario" id="idusuario" placeholder="Introduce el id de idusuario" required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>Nombre:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Introduce el nombre del usuario" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>Teléfono:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Introduce el telefono del usuario" required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>Email:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="email" class="form-control" name="email" id="email"  placeholder="Introduce el email del usuario" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>Contraseña:</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="form-group">
+                              <input type="password" maxlength="15" class="form-control" name="contraseña" id="contraseña" placeholder="Introduce una contraseña segura" required>
+                            </div>
+                          </td>
+                       <td >
+                         <div class="form-group">
+                           <label>Sexo:</label>
+                         </div>
+                       </td>
+                       <td >
+                         <div class="form-group">
+                           <input type="text" maxlength="9" class="form-control" name="sexo" id="sexo"  placeholder="Introduce el sexo del usuario MASCULINO/FEMENINO" required>
+                         </div>
+                       </td>
+                       
+                     </tr>
+                     <tr>
+                        <td >
+                            <div class="form-group">
+                              <label>Tipo:</label>
+                            </div>
+                          </td>
+                          <td>
+                            
+                            <select class="form-control" name="tipo" id="tipo">
+                              <option value="A" selected>Alumno</option>
+                              {%if current_user.Tipo=="L"%}
+                              <option value="M">Maestro</option>
+                              <option value="L">Administrador</option>
+                              {%endif%}
+                            </select>
+                          </td>
+                       
+                     </tr>
+                    
+                   </body>
+                 </table>
+                 <button align="center" class="btn btn-primary">Agregar</button>
+                 <a  role="btn" class="btn btn-danger" href="/usuarios">Regresar</a>
+           </form>   
+         </div>
+       </div>
+       <br>
+      
+
+  </main>
+
+
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(245, 236, 236, 0.2)">
+      <img src="{{url_for('static',filename='Imagenes/logoACC.png')}}" class="imgFooter">© 2020 Copyright:
+      <a class="text-dark" href="https://www.teczamora.mx">www.teczamora.mx</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  </body>
+</html>

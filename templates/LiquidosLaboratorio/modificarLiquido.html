@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Modificar Liquidos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/bootstrap.min.css')}}">
+  </head>
+  <body>
+    <header>
+      <div align="center"><img src="{{url_for('static',filename='Imagenes/logoTEC.jpg')}}" class="ImgHeader">  </div>
+      <br>
+   </header>
+
+      <main>
+        <h1 align="center">Modificación de Liquidos de laboratorio</h1>
+        <div class="border-0">
+        <form action="/liquidos/modificar" method="POST" align="center">
+             <table align="center" width=80% >
+               <body>
+                 <tr>
+                  <td>
+                    <div class="form-group">
+                      <label>IdLíquido:</label>
+                      </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                      <input type="number" class="form-control" value="{{Liquido.IdLiquido}}" name="idliquido" id="idliquido"  readonly required>
+                  </div>
+                  </td>
+                   <td >
+                     <div class="form-group">
+                       <label>IdLaboratorio:</label>
+                     </div>
+                   </td>
+                   <td >
+                     <div class="form-group">
+                       <input type="number" class="form-control" value="{{Liquido.IdLaboratorio}}" name="idlaboratorio" id="idlaboratorio"  placeholder="Introduce el id del laboratorio"  required>
+                     </div>
+                   </td>
+                  
+                 </tr>
+                 <tr>
+                   <td>
+                     <div class="form-group">
+                       <label>Medio de Cultivo:</label>
+                       </div>
+                   </td>
+                   <td>
+                     <div class="form-group">
+                       <input type="text" class="form-control" value="{{Liquido.MedioCultivo}}" name="medio" id="medio" placeholder="Introduce el medio de cultivo" required>
+                     </div>
+                   </td>
+                   <td>
+                     <div class="form-group">
+                       <label>Fecha de Caducidad:</label>
+                       </div>
+                   </td>
+                   <td>
+                     <div class="form-group">
+                       <input type="date" class="form-control" value="{{Liquido.FechaCaducidad}}" name="caducidad" id="caducidad"  placeholder="Fecha de caducidad" required>
+                     </div>
+                   </td>
+                 </tr>
+                 <tr>
+                  <td>
+                    <div class="form-group">
+                      <label>Cantidad:</label>
+                      </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                      <input type="number" class="form-control" value="{{Liquido.Cantidad}}" name="cantidad" id="cantidad"  placeholder="Introduce la cantidad de contenedores" required>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                      <label>Capacidad:</label>
+                      </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                      <input type="text" maxlength="6" class="form-control" value="{{Liquido.Capacidad}}" name="capacidad" id="capacidad" aria-describedby="numero de aula" placeholder="numero de aula del laboratorio" required>
+                    </div>
+                  </td>
+                </tr>
+                 
+               </body>
+             </table>
+             <button align="center" class="btn btn-danger">Actualizar</button>
+             <a align="center" role="btn" class="btn btn-primary" href="/liquidos">Regresar</a>
+       </form>   
+     </div>
+   </div>
+   <br>
+  
+  </main>
+
+  <footer>
+            
+    <footer class="bg-light text-center text-lg-start">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(245, 236, 236, 0.2)">
+        <img src="{{url_for('static',filename='Imagenes/logoACC.png')}}" class="imgFooter">© 2020 Copyright:
+        <a class="text-dark" href="https://www.teczamora.mx">www.teczamora.mx</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+</footer>
+  </body>
+</html>
